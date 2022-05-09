@@ -13,25 +13,20 @@ import java.util.Scanner;
 public class E03_SumaNumeros {
 
   public static void main(String[] args) {
-
-      String filename = "numeros.txt";
-      Scanner fitxer = null;
-
-      try {
-
-          fitxer = new Scanner(new File(filename));
-
-      } catch (FileNotFoundException e) {
-          System.err.println("No existeix el fitxer " + filename);
-          System.exit(1);
-      }
-
-      int suma = 0;
-      while (fitxer.hasNextInt()) {
-          suma = suma + fitxer.nextInt();
-      }
-      fitxer.close();
-      System.out.println("La suma total és = " + suma);
-
-  }
+	  String filename = "src/Numeros.txt";
+	  Scanner file = null;
+	  
+	  try {
+		  file = new Scanner(new File(filename));
+	  }catch(FileNotFoundException e ) {
+		  System.err.println("El fichero no se encuentra: " + filename);
+	  }
+	  int result = 0;
+	  while(file.hasNext()) {
+		 result += file.nextInt();
+	  }
+	  
+	  file.close();
+	  System.out.println("La suma de las lineas es: " + result);
+  }    
 }

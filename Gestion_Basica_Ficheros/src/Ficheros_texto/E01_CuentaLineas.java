@@ -13,30 +13,24 @@ import java.util.Scanner;
 public class E01_CuentaLineas {
  
     public static void main(String[] args) {
+    	String nombre = "src/exer1.txt";
+    	Scanner fichero = null;
     	
-    	//Nombre del fichero
-        String filename = "prueba.txt";
-        Scanner fitxer = null;
- 
-        try {
-        	
-            fitxer = new Scanner(new File(filename));
- 
-        } catch (FileNotFoundException e) {
-            System.err.println("No existeix el fitxer " + filename);//No existe el fichero prueba.txt
-            System.exit(1);
-        }
-        
-        int cont = 0;
-        while (fitxer.hasNext()) {//Si tiene siguiente linea independientemente de si es int , string o cualquiere objeto
-            String linea = fitxer.nextLine();//Devuelve la siguiente linea
-            cont++;//Contador de lineas
-        }
-        
-        
-        fitxer.close();//Cerramos el fichero
- 
-        System.out.println("El fichero " + filename + " tiene " + cont + " lineas");
- 
+    	try {
+    		fichero = new Scanner(new File(nombre));
+    		System.out.println("Si se ha encontrado!");
+    	}catch(FileNotFoundException e) {
+    		System.err.println("No se encuentra el Finchero de nombre" + nombre);
+    		System.exit(1);
+    	}
+    	int cont = 0;
+    	while(fichero.hasNext()) {
+    		fichero.nextLine();
+    		cont++;
+    	}
+    	
+    	fichero.close();
+    	
+    	System.out.println("El fichero contiene: " + cont + " lineas.");
     }
 }

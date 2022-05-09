@@ -13,23 +13,27 @@ import java.util.Scanner;
 public class E02_cat {
 
   public static void main(String[] args) {
-
-      String filename = "prueba.txt";
-      Scanner fitxer = null;
-
-      try {
-
-          fitxer = new Scanner(new File(filename));
-
-      } catch (FileNotFoundException e) {
-          System.err.println("No existeix el fitxer " + filename);
-          System.exit(1);
-      }
-
-      while (fitxer.hasNext()) {
-          System.out.println(fitxer.nextLine());
-      }
-      fitxer.close();
-
-  }
+	  String nombre = "src/exer1.txt";
+	  Scanner fichero = null;
+	  
+	  try {
+		  fichero = new Scanner(new File(nombre));
+	  }catch(FileNotFoundException e) {
+		  System.err.println("No encuentra el fichero : " + nombre);
+		  System.exit(1);
+	  }
+	  
+	  String salida = "";
+	  
+	  while(fichero.hasNext()) {
+		 salida += fichero.nextLine();
+		 salida += "\n";		 
+	  }
+	  
+	  fichero.close();
+	  
+	  System.out.println(salida);
+	  
+	  
+  }   
 }
